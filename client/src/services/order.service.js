@@ -1,3 +1,3 @@
 import axiosInstance from "../lib/axios";
 
-export const getOrders=()=> axiosInstance.get("/orders/admin/all")
+export const getOrders=()=> axiosInstance.get("/api/orders/admin/all")

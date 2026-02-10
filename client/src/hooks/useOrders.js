@@ -5,7 +5,7 @@ import axiosInstance from "../lib/axios";
 export const useOrders=()=>{
     return useQuery({
             queryKey:["admin-orders"],
-            queryFn:() => axiosInstance.get("/orders/admin/all"),
+            queryFn:() => axiosInstance.get("/api/orders/admin/all"),
         })
 }
 
@@ -14,7 +14,7 @@ export const useAcceptOrder = () => {
 
   return useMutation({
     mutationFn: (orderId) =>
-      axiosInstance.put(`/orders/${orderId}/accept`),
+      axiosInstance.put(`/api/orders/${orderId}/accept`),
 
     onSuccess: () => {
       queryClient.invalidateQueries(["admin-orders"]);
@@ -27,7 +27,7 @@ export const useDeliverOrder = () => {
 
   return useMutation({
     mutationFn: (orderId) =>
-      axiosInstance.put(`/orders/${orderId}/deliver`),
+      axiosInstance.put(`/api/orders/${orderId}/deliver`),
 
     onSuccess: () => {
       queryClient.invalidateQueries(["admin-orders"]);
@@ -40,7 +40,7 @@ export const useDeleteOrder = () => {
 
   return useMutation({
     mutationFn: (orderId) =>
-      axiosInstance.delete(`/orders/${orderId}`),
+      axiosInstance.delete(`/api/orders/${orderId}`),
 
     onSuccess: () => {
       queryClient.invalidateQueries(["admin-orders"]);

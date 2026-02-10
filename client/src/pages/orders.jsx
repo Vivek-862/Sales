@@ -9,7 +9,7 @@ export default function Orders() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const data = await axiosInstance.get("orders/my-orders"
+        const data = await axiosInstance.get("/api/orders/my-orders"
         );
         console.log("API RESPONSE 👉", data);
         setOrders(data.orders || []);
