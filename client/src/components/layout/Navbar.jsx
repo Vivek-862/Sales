@@ -19,9 +19,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="flex justify-between items-center px-6 py-4 bg-indigo-600 text-white">
+    <nav className="flex justify-between items-center px-6 py-4 bg-orange-500 text-white">
       {/* Logo */}
-      <h1 className="font-bold text-xl">Hotel Grandcd </h1>
+      <h1 className="font-bold text-xl">Biryani House</h1>
 
       {/* Links */}
       <div className="flex items-center space-x-5">
