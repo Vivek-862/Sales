@@ -262,7 +262,7 @@ export default function Cart() {
       paymentMethod,
     };
 
-    await axiosInstance.post("/orders", payload, {
+    await axiosInstance.post("/api/orders", payload, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
 
