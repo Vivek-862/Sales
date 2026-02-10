@@ -22,6 +22,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "@tanstack/react-router";
+import axiosInstance from "../lib/axios";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -32,7 +33,7 @@ export default function Register() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axiosInstance.post("api/auth/register", {
         name,
         email,
         password,
