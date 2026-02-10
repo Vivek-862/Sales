@@ -49,7 +49,7 @@ export default function Login() {
       password,
     });
 
-    login(res.data);
+    login(res);
     toast.success("Login successful 🎉");
     navigate({ to: "/" });
    }catch(err){
