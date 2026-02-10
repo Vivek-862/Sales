@@ -1,0 +1,547 @@
+
+// JAVASCRIPT NOTES: FROM BEGINNER TO ADVANCED
+
+// 1. BASIC SYNTAX & VARIABLES
+// Variable Declarations
+var name = "John";
+var age = 25;
+
+let score = 100;
+score = 150;
+
+const PI = 3.14159;
+
+// Hoisting
+console.log(hoistedVar); // undefined
+var hoistedVar = "Hello";
+let hoistedLet = "World";
+
+// Comments
+// Single line comment
+/* Multi-line comment */
+
+// 2. DATA TYPES
+// Primitive Types
+let str = "Hello World";
+let integer = 42;
+let float = 3.14;
+let isTrue = true;
+let emptyIsUndefined;
+let explicitlyNull = null;
+let sym1 = Symbol('description');
+let bigNumber = 123456789012345678901234567890n;
+
+// Type Checking
+console.log(typeof value); // "number"
+console.log(Array.isArray([])); // true
+
+// 3. OPERATORS
+let a = 10, b = 3;
+console.log(a + b);  // 13
+console.log(a == b);  // false
+console.log(a === b); // false
+
+let x = 5, y = "5";
+console.log(x == y);  // true
+console.log(x === y); // false
+
+// Logical Operators
+let result = a && "Hello"; // "Hello"
+let name = user ?? "Anonymous"; // "Anonymous"
+
+// Assignment Operators
+let x = 10;
+x += 5;  // x = x + 5 (15)
+
+// 4. CONTROL STRUCTURES
+let score = 85;
+if (score >= 90) {
+    console.log("A grade");
+} else if (score >= 80) {
+    console.log("B grade");
+} else {
+    console.log("Below C grade");
+}
+
+// Ternary operator
+let grade = score >= 60 ? "Pass" : "Fail";
+
+// Switch statement
+let day = 3;
+switch (day) {
+    case 1: console.log("Monday"); break;
+    case 2: console.log("Tuesday"); break;
+    case 3: console.log("Wednesday"); break;
+    default: console.log("Other day");
+}
+
+// Loops
+for (let i = 0; i < 5; i++) {
+    console.log(i); // 0, 1, 2, 3, 4
+}
+
+let count = 0;
+while (count < 3) {
+    console.log(count); // 0, 1, 2
+    count++;
+}
+
+let fruits = ["apple", "banana", "orange"];
+for (let fruit of fruits) {
+    console.log(fruit); // apple, banana, orange
+}
+
+// 5. FUNCTIONS
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+console.log(greet("Alice")); // "Hello, Alice!"
+
+const add = function(a, b) {
+    return a + b;
+};
+console.log(add(5, 3)); // 8
+
+const multiply = (a, b) => a * b;
+console.log(multiply(4, 5)); // 20
+
+// Default parameters
+function greet(name = "World", punctuation = "!") {
+    return `Hello, ${name}${punctuation}`;
+}
+console.log(greet()); // "Hello, World!"
+
+// Rest parameters
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+console.log(sum(1, 2, 3, 4, 5)); // 15
+
+// Destructuring parameters
+function displayUser({ name, age, city = "Unknown" }) {
+    console.log(`${name}, ${age}, ${city}`);
+}
+displayUser({ name: "John", age: 30 }); // "John, 30, Unknown"
+
+// 6. ARRAYS
+let fruits = ["apple", "banana", "orange"];
+console.log(fruits.length); // 3
+console.log(fruits[0]); // "apple"
+
+fruits.push("mango"); // Add to end
+fruits.unshift("kiwi"); // Add to beginning
+fruits.pop(); // Remove from end
+fruits.shift(); // Remove from beginning
+
+// Array methods
+let numbers = [1, 2, 3, 4, 5];
+numbers.forEach((num, index) => {
+    console.log(`${index}: ${num}`);
+});
+
+let doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+let evens = numbers.filter(num => num % 2 === 0);
+console.log(evens); // [2, 4]
+
+let firstEven = numbers.find(num => num % 2 === 0);
+console.log(firstEven); // 2
+
+let hasEven = numbers.some(num => num % 2 === 0);
+console.log(hasEven); // true
+
+let allPositive = numbers.every(num => num > 0);
+console.log(allPositive); // true
+
+let sum = numbers.reduce((total, num) => total + num, 0);
+console.log(sum); // 15
+
+// Array Destructuring
+let colors = ["red", "green", "blue"];
+let [first, second, third] = colors;
+console.log(first, second, third); // red green blue
+
+let [firstColor, ...rest] = colors;
+console.log(firstColor); // red
+console.log(rest); // ["green", "blue"]
+
+// 7. OBJECTS
+let person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    hobbies: ["reading", "swimming"],
+    getFullName: function() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+};
+console.log(person.firstName); // "John"
+console.log(person.getFullName()); // "John Doe"
+
+// Constructor function
+function Car(brand, model, year) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+    this.getInfo = function() {
+        return `${this.year} ${this.brand} ${this.model}`;
+    };
+}
+let myCar = new Car("Toyota", "Camry", 2020);
+console.log(myCar.getInfo()); // "2020 Toyota Camry"
+
+// ES6 Class
+class Animal {
+    constructor(name, species) {
+        this.name = name;
+        this.species = species;
+    }
+    makeSound() {
+        return `${this.name} makes a sound`;
+    }
+    static getKingdom() {
+        return "Animalia";
+    }
+}
+let dog = new Animal("Buddy", "Dog");
+console.log(dog.makeSound()); // "Buddy makes a sound"
+
+// Object methods
+let obj = { a: 1, b: 2, c: 3 };
+console.log(Object.keys(obj)); // ["a", "b", "c"]
+console.log(Object.values(obj)); // [1, 2, 3]
+console.log(Object.entries(obj)); // [["a", 1], ["b", 2], ["c", 3]]
+
+// Object.assign() - shallow copy
+let obj1 = { a: 1, b: 2 };
+let obj2 = { b: 3, c: 4 };
+let merged = Object.assign({}, obj1, obj2);
+console.log(merged); // { a: 1, b: 3, c: 4 }
+
+// Spread operator
+let spreadMerged = { ...obj1, ...obj2 };
+console.log(spreadMerged); // { a: 1, b: 3, c: 4 }
+
+// Object Destructuring
+let student = {
+    name: "Alice",
+    age: 20,
+    grade: "A",
+    subjects: ["Math", "Science"]
+};
+let { name, age, grade } = student;
+console.log(name, age, grade); // Alice 20 A
+
+// 8. DOM MANIPULATION
+// Selecting Elements
+let element = document.getElementById("myId");
+let elements = document.getElementsByClassName("myClass");
+let allDivs = document.querySelectorAll("div");
+
+// Modifying Elements
+element.innerHTML = "<strong>New content</strong>";
+element.textContent = "Plain text";
+element.setAttribute("class", "newClass");
+element.style.color = "red";
+element.classList.add("highlight");
+
+// Creating elements
+let newDiv = document.createElement("div");
+newDiv.textContent = "New element";
+document.body.appendChild(newDiv);
+
+// 9. EVENTS
+let button = document.getElementById("myButton");
+button.addEventListener("click", function(event) {
+    console.log("Button clicked!");
+});
+
+// Keyboard events
+input.addEventListener("keydown", (e) => {
+    console.log(`Key pressed: ${e.key}`);
+    if (e.key === "Enter") {
+        console.log("Enter pressed");
+    }
+});
+
+// 10. ES6+ FEATURES
+// Template Literals
+let name = "Alice";
+let age = 30;
+let greeting = `Hello, ${name}! You are ${age} years old.`;
+console.log(greeting); // "Hello, Alice! You are 30 years old."
+
+// Tagged template literals
+function highlight(strings, ...values) {
+    return strings.reduce((result, string, i) => {
+        return result + string + (values[i] ? `<mark>${values[i]}</mark>` : '');
+    }, '');
+}
+let html = highlight`Hello ${name}, you are ${age} years old!`;
+
+// Destructuring Assignment
+let [a, b, c] = [1, 2, 3];
+console.log(a, b, c); // 1 2 3
+
+let { x, y, z } = { x: 1, y: 2, z: 3 };
+console.log(x, y, z); // 1 2 3
+
+// Swapping variables
+let x = 1, y = 2;
+[x, y] = [y, x];
+console.log(x, y); // 2 1
+
+// Modules (math.js)
+export const PI = 3.14159;
+export function add(a, b) {
+    return a + b;
+}
+export default function subtract(a, b) {
+    return a - b;
+}
+
+// (main.js)
+import subtract, { PI, add } from './math.js';
+
+// Classes
+class Person {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    setAge(newAge) {
+        if (newAge > 0) {
+            this.age = newAge;
+        }
+    }
+    static getSpecies() {
+        return "Homo sapiens";
+    }
+}
+
+class Student extends Person {
+    constructor(firstName, lastName, age, grade) {
+        super(firstName, lastName, age);
+        this.grade = grade;
+    }
+    getGrade() {
+        return this.grade;
+    }
+}
+
+let student = new Student("Alice", "Johnson", 20, "A");
+console.log(student.getFullName()); // "Alice Johnson"
+console.log(student.getGrade()); // "A"
+
+// Promises
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let success = Math.random() > 0.5;
+        if (success) {
+            resolve("Operation successful!");
+        } else {
+            reject("Operation failed!");
+        }
+    }, 1000);
+});
+
+promise
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+
+// 11. ASYNC PROGRAMMING
+// Async/Await
+async function fetchData() {
+    try {
+        let response = await fetch("https://api.example.com/data");
+        let data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+    }
+}
+
+async function main() {
+    try {
+        let data = await fetchData();
+        console.log(data);
+    } catch (error) {
+        console.error("Main error:", error);
+    }
+}
+main();
+
+// Promise Patterns
+Promise.all([
+    fetch("url1"),
+    fetch("url2"),
+    fetch("url3")
+]).then(responses => {
+    console.log("All requests completed");
+}).catch(error => {
+    console.error("One or more requests failed");
+});
+
+Promise.race([
+    fetch("slow-url"),
+    new Promise((_, reject) => setTimeout(() => reject("Timeout"), 5000))
+]).then(response => {
+    console.log("Success:", response);
+}).catch(error => {
+    console.error("Either request failed or timeout occurred");
+});
+
+// 12. ADVANCED CONCEPTS
+// Closures
+function outerFunction(x) {
+    return function innerFunction(y) {
+        return x + y;
+    };
+}
+let add5 = outerFunction(5);
+console.log(add5(3)); // 8
+
+// Prototypes
+function Animal(name) {
+    this.name = name;
+}
+Animal.prototype.speak = function() {
+    return `${this.name} makes a sound`;
+};
+
+let dog = new Animal("Buddy");
+console.log(dog.speak()); // "Buddy makes a sound"
+
+// Modern approach with classes
+class Cat extends Animal {
+    constructor(name, breed) {
+        super(name);
+        this.breed = breed;
+    }
+    speak() {
+        return `${this.name} meows`;
+    }
+}
+
+// Higher-Order Functions and Functional Programming
+const compose = (f, g) => (x) => f(g(x));
+const add10 = x => x + 10;
+const multiply2 = x => x * 2;
+const add10ThenMultiply2 = compose(multiply2, add10);
+console.log(add10ThenMultiply2(5)); // 30
+
+// Currying
+const curry = (fn) => (...args) => {
+    if (args.length >= fn.length) {
+        return fn(...args);
+    } else {
+        return (...nextArgs) => curry(fn)(...args, ...nextArgs);
+    }
+};
+const add = (a, b, c) => a + b + c;
+const curriedAdd = curry(add);
+console.log(curriedAdd(1)(2)(3)); // 6
+
+// Memoization
+const memoize = (fn) => {
+    const cache = new Map();
+    return (...args) => {
+        const key = JSON.stringify(args);
+        if (cache.has(key)) {
+            return cache.get(key);
+        }
+        const result = fn(...args);
+        cache.set(key, result);
+        return result;
+    };
+};
+const expensiveFunction = memoize((n) => {
+    console.log("Computing...");
+    return n * n;
+});
+console.log(expensiveFunction(5)); // "Computing..." 25
+console.log(expensiveFunction(5)); // 25 (cached)
+
+// Generators
+function* numberGenerator() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+let gen = numberGenerator();
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+
+// Custom iterator
+class Range {
+    constructor(start, end) {
+        this.start = start;
+        this.end = end;
+    }
+    *[Symbol.iterator]() {
+        for (let i = this.start; i <= this.end; i++) {
+            yield i;
+        }
+    }
+}
+let range = new Range(1, 5);
+for (let num of range) {
+    console.log(num); // 1, 2, 3, 4, 5
+}
+
+// Error Handling
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "ValidationError";
+    }
+}
+
+function divide(a, b) {
+    if (b === 0) {
+        throw new ValidationError("Division by zero is not allowed");
+    }
+    return a / b;
+}
+
+try {
+    let result = divide(10, 0);
+} catch (error) {
+    if (error instanceof ValidationError) {
+        console.error("Validation error:", error.message);
+    } else {
+        console.error("Unexpected error:", error);
+    }
+} finally {
+    console.log("Cleanup code here");
+}
+
+// Performance and Optimization
+function debounce(func, delay) {
+    let timeoutId;
+    return function(...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+
+const debouncedSearch = debounce((query) => {
+    console.log("Searching for:", query);
+}, 300);
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}

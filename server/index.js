@@ -54,6 +54,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/payment", paymentRoutes);
 
 
+const PORT = process.env.PORT || 5000;
 
 /* ✅ CONNECT DB THEN START SERVER */
 mongoose
@@ -61,8 +62,8 @@ mongoose
   .then(() => {
     console.log("MongoDB connected");
 
-    app.listen(5000, () => {
-      console.log("Server is running on port 5000");
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((err) => {
