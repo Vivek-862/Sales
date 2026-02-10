@@ -14,7 +14,7 @@ export const useAddProduct = () => {
   const qc = useQueryClient();
 
   return useMutation({
-    mutationFn: (data) => axiosInstance.post("/products", data),
+    mutationFn: (data) => axiosInstance.post("/api/products", data),
     onSuccess: () => qc.invalidateQueries(["products"]),
   });
 };
@@ -25,7 +25,7 @@ export const useUpdateProduct = () => {
 
   return useMutation({
     mutationFn: ({ id, data }) =>
-      axiosInstance.put(`/products/${id}`, data),
+      axiosInstance.put(`/api/products/${id}`, data),
     onSuccess: () => qc.invalidateQueries(["products"]),
   });
 };
@@ -35,7 +35,7 @@ export const useDeleteProduct = () => {
   const qc = useQueryClient();
 
   return useMutation({
-    mutationFn: (id) => axiosInstance.delete(`/products/${id}`),
+    mutationFn: (id) => axiosInstance.delete(`/api/products/${id}`),
     onSuccess: () => qc.invalidateQueries(["products"]),
   });
 };
